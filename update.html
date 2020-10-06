@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Bitfox - USBMIDI Tool </title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Bitfox</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="configuration.html">Configuration</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="calibration.html">Calibration  
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="update.html">Update
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div style="margin-top:50px; margin-left:20px">
+    <p id="logger" style="overflow-y: scroll; height: 400px; width: 400px;"></p>
+  </div>
+  <div class="container" style="margin-bottom: 20px; margin-top:50px;">
+
+    <!-- FROM HERE THERE WILL BE THE CUSTOM TEXT -->
+    <!-- FROM HERE THERE WILL BE THE CUSTOM TEXT -->
+    <!-- FROM HERE THERE WILL BE THE CUSTOM TEXT -->
+    <!-- FROM HERE THERE WILL BE THE CUSTOM TEXT -->
+    <!-- FROM HERE THERE WILL BE THE CUSTOM TEXT -->
+
+
+
+
+    <div style="margin-bottom: 50px; float:none;">
+      <h4>Load Firmware Update From File</h4>
+      <input type="file" id="file-selector"></input>
+    </div>
+    
+    <div style="margin-bottom: 50px; float:none;">
+      <h4>Check Midi Status</h4>
+      <button onclick="CheckUsbMidiAlive()">Alive</button>
+    </div>
+
+
+    <div style="margin-bottom: 50px;">    
+      <h1>Explanation: </h1>
+      <p>
+        Press the Alive button to test if the USBMIDI is connected and which version is running.
+        <br>
+        <br>
+        To the left you find the Console which logs actions. If you see no response your USBMIDI is not connected.
+      </p>
+  
+      <p>
+        When Updating please be very sure that the file you upload is correct !
+        If you upload a invalid file the module will update to it regardless, but will not be able to run correctly and will NOT be able to revert or update to a correct version
+      </p>
+  
+      <p>
+        As soon as you select a file it will try to upload it.
+        If the name of the file doesn't match: "USBMIDI.bin" then it will not try to update the module.
+      </p>
+    </div>
+
+    <!-- FROM HERE IT ENDS ENDS -->
+    <!-- FROM HERE IT ENDS ENDS -->
+    <!-- FROM HERE IT ENDS ENDS -->
+    <!-- FROM HERE IT ENDS ENDS -->
+    <!-- FROM HERE IT ENDS ENDS -->
+    
+    <script src="update.js"></script>
+  </div>
+  <div class="pict-panel" style="width: 100px; margin-top:50px">
+    <table class="modpanel">
+      <tr>
+        <td><img style="padding-right: 2em; padding-top: 0.3em;" src="images/ScrewSilver.svg"></td>
+      </tr>
+
+      <tr>
+        <td colspan="1" style="color:white">USBMIDI<br></td>
+      </tr>
+      <tr>
+          <td><img style="padding-bottom: 3em; padding-top: 0.3em; size:0.5em" src="images/USB-B.svg"></td>
+      </tr>
+      <tr>  
+        <td><img src="images/LEDBezel.svg"> </td>
+      </tr>
+      <tr>
+        <td><img src="images/PJ301M.svg">
+        <img src="images/PJ301M.svg"> </td>
+      </tr>
+      <tr>  
+        <td><img src="images/LEDBezel.svg"> </td>
+      </tr>
+      <tr>
+        <td><img src="images/PJ301M.svg">
+        <img src="images/PJ301M.svg"> </td>
+      </tr>
+      <tr>  
+        <td><img src="images/LEDBezel.svg"> </td>
+      </tr>
+      <tr>
+        <td><img src="images/PJ301M.svg">
+        <img src="images/PJ301M.svg"> </td>
+      </tr>
+      <tr>  
+        <td><img src="images/LEDBezel.svg"> </td>
+      </tr>
+      <tr>
+        <td><img style="padding-bottom: 1em;" src="images/PJ301M.svg">
+        <img style="padding-bottom: 1em;" src="images/PJ301M.svg"> </td>
+      </tr>
+          <td><img style="padding-right: 2em; padding-bottom: 0.3em;" src="images/ScrewSilver.svg"></td>
+      </tr>
+    </table>
+  </div>
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+
+  <script src="webmidi.min.js"></script>
+  <script src="midi.js"></script>
+  <script>
+    // Console Replacement 
+    !function(o){console.old=console.log,console.log=function(){var n,e,t="";for(e=0;e<arguments.length;e++)t+='<span class="log-'+typeof(n=arguments[e])+'">',"object"==typeof n&&"object"==typeof JSON&&"function"==typeof JSON.stringify?t+=JSON.stringify(n):t+=n,t+="</span>&nbsp;";y=o.innerHTML;y=t+"<br>"+y;o.innerHTML=y,console.old.apply(void 0,arguments)}}
+    (document.getElementById("logger"));
+  </script>
+</body>
+
+
+
+</html>
