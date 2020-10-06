@@ -482,10 +482,11 @@ var digitalmodelist = {
   255: "DIGITAL_RANDOM"
 }
 
-var numberlist = [];
-for (let index = 0; index < 128; index++) {
-  numberlist.push(index);  
+var cclist = [];
+for (let index = 1; index < 120; index++) {
+  cclist.push(index);  
 }
+
 
 var altnumberlist = ["-----"];
 for (let index = 1; index < 257; index++) {
@@ -495,8 +496,8 @@ for (let index = 1; index < 257; index++) {
 var analogbyte2list = {
   1: notelist,
 
-  5: numberlist,
-  6: numberlist,
+  5: cclist,
+  6: cclist,
 
   26: notelist,
   27: notelist,
