@@ -45,6 +45,7 @@ function getMIDIMessage(midiMessage) {
         } else {
           console.log("App Update Checked succesfully !");
           console.log("Resetting the device and updating the application");
+          await sleep(10);
           MidiSetUpdateBits();
           console.log("Please wait a few seconds, the device will flash green and orange.");
           console.log("When the device has had its leds off for another 5 seconds, reinsert the USB cable and check if the device is alive");

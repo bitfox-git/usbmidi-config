@@ -2,6 +2,10 @@ var midiaccess
 var midiin;
 var midiout;
 
+  // Console Replacement 
+  !function(o){console.old=console.log,console.log=function(){var n,e,t="";for(e=0;e<arguments.length;e++)t+='<span class="log-'+typeof(n=arguments[e])+'">',"object"==typeof n&&"object"==typeof JSON&&"function"==typeof JSON.stringify?t+=JSON.stringify(n):t+=n,t+="</span>&nbsp;";y=o.innerHTML;y=t+"<br><br>"+y;o.innerHTML=y,console.old.apply(void 0,arguments)}}
+  (document.getElementById("logger"));
+
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }

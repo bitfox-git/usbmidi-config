@@ -157,11 +157,6 @@
 
   <script src="webmidi.min.js"></script>
   <script src="midi.js"></script>
-  <script>
-    // Console Replacement 
-    !function(o){console.old=console.log,console.log=function(){var n,e,t="";for(e=0;e<arguments.length;e++)t+='<span class="log-'+typeof(n=arguments[e])+'">',"object"==typeof n&&"object"==typeof JSON&&"function"==typeof JSON.stringify?t+=JSON.stringify(n):t+=n,t+="</span>&nbsp;";y=o.innerHTML;y=t+"<br>"+y;o.innerHTML=y,console.old.apply(void 0,arguments)}}
-    (document.getElementById("logger"));
-  </script>
 </body>
 
 
