@@ -14,7 +14,7 @@ var verifyindex;
 var updatereceive;
 var checkerror = false;
 
-function getMIDIMessage(midiMessage) {
+async   function getMIDIMessage(midiMessage) {
   if(midiMessage.currentTarget == midiin) {
     if(midiMessage.data.length == 3 && midialive == true) {
       console.log("Bitfox USBMIDI device is alive ! Version: " + midiMessage.data[1])
