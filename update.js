@@ -31,7 +31,7 @@ function getMIDIMessage(midiMessage) {
         if(checkarray[index] != view[index+verifyindex*arrsize]) {
           console.log("Page " + (verifyindex*4+1) + " - Page " + (verifyindex*4+4) + " FAILED");
           console.log("Failed on index: " + index);
-          checkbool = true
+          checkerror = true
           break;
         }
       }
@@ -56,12 +56,27 @@ function getMIDIMessage(midiMessage) {
 
 
 async function midiappsend() {
-  var pages = Math.ceil(view.length / 512);
+  console.log("Clearing Update flash memory on device")
+  var buf2 = new Uint8Array(8);
+  buf2[0] = 0xF0;
+  buf2[1] = 0x00;
+  buf2[2] = 0x46;
+  buf2[3] = 0x47;
+  buf2[4] = 0x57;
+  buf2[5] = 0x00;
+  buf2[6] = 0x7A;
+  buf2[7] = 0xF7;
+  midiout.send(buf2);
+  await sleep(2000);
+
+
+
+  var pages = Math.ceil(view.length / 64);
   var midiappsendindex = 0;
   console.log("Started sending App Update Information");
   for (let i = 0; i < pages; i++) {    
-    await sleep(500);
-    var bufsize = Math.min(512, view.length - i * 512)
+    await sleep(100);
+    var bufsize = Math.min(64, view.length - i * 64)
     var buf = new Uint8Array(5*bufsize+8);
     buf[0] = 0xF0;
     buf[1] = 0x00;
@@ -69,15 +84,13 @@ async function midiappsend() {
     buf[3] = 0x47;
     buf[4] = 0x57;
     buf[5] = 0x00;
-    if(i == 0) {
-      buf[6] = 0x7A;
-    } else if(i == pages-1) {
+    if(i == pages-1) {
       buf[6] = 0x78;
     } else {
       buf[6] = 0x79;
     }
     for (let index = 0; index < bufsize; index++) {
-      input = view[index+512*i];
+      input = view[index+64*i];
       buf[5*index+7] = (input >> 0) & 0x7F;
       buf[5*index+8] = (input >> 7) & 0x7F;
       buf[5*index+9] = (input >> 14) & 0x7F;
